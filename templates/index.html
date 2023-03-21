@@ -401,32 +401,32 @@
     <!-- //FOOTER -->
 </div>
 <!-- //CONTENT WRAPPER -->
-{#<script>#}
-{#var toggleButton = document.querySelector(".navbar-toggler");#}
-{#var links = document.querySelectorAll(".navbar-nav a");#}
-{##}
-{#toggleButton.addEventListener("click", function () {#}
-{#  var navbar = document.querySelector(".navbar-collapse");#}
-{#  if (navbar.classList.contains("show")) {#}
-{#    navbar.classList.remove("show");#}
-{#  } else {#}
-{#    navbar.classList.add("show");#}
-{#  }#}
-{#});#}
-{##}
-{#for (var i = 0; i < links.length; i++) {#}
-{#  links[i].addEventListener("click", function () {#}
-{#    var navbar = document.querySelector(".navbar-collapse");#}
-{#    if (navbar.classList.contains("show")) {#}
-{#      navbar.classList.remove("show");#}
-{#    }#}
-{#  });#}
-{#}#}
-{##}
-{##}
-{##}
-{##}
-{#</script>#}
+<script>
+var toggleButton = document.querySelector(".navbar-toggler");
+var links = document.querySelectorAll(".navbar-nav a");
+
+toggleButton.addEventListener("click", function () {
+  var navbar = document.querySelector(".navbar-collapse");
+  if (navbar.classList.contains("show")) {
+    navbar.classList.remove("show");
+  } else {
+    navbar.classList.add("show");
+  }
+});
+
+for (var i = 0; i < links.length; i++) {
+  links[i].addEventListener("click", function () {
+    var navbar = document.querySelector(".navbar-collapse");
+    if (navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  });
+}
+
+
+
+
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{% static 'js/validate.js' %}"></script>
 <script src="{% static 'js/email_verification.js' %}"></script>
