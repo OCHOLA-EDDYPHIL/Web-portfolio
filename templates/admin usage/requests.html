@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice</title>
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<!-- REQUESTS -->
+<section id="requests" class="full-height px-lg-5">
+    <div class="container">
+
+        <div class="row pb-4" data-aos="fade-up">
+            <div class="col-lg-8">
+                <h4 class="text-brand">REQUESTS</h4>
+            </div>
+        </div>
+
+        <div class="row gy-4">
+            {% for application in applications %}
+                <div class="col-md-4" data-aos="fade-up">
+
+                    <div class="request shadow-effect bg-base p-4 rounded-4">
+                        <div class="text-brand h5">
+                            <p class="lead">{{ application.name }} in </p>
+                            <p class="mb-0 text-success fs-6 fst-italic fw-light">{{ application.service }}</p>
+                        </div>
+                        <p class="my-3 fs-4">{{ application.message }}</p>
+                        <div class="person">
+                            <p class="mb-0 fs-6 text-info">{{ application.created_at }}</p>
+                            <h5 class="mb-0">{{ application.location }}</h5>
+                            <a href="mailto:{{ application.email }}" target="_blank">{{ application.email }}</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- //REQUESTS -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
