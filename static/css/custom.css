@@ -1,0 +1,23 @@
+/* Override the default background color */
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Override the default text color */
+.swal-text {
+  color: #fff !important;
+}
+/* Override the default box styling */
+.swal-modal {
+  background-color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+/* Override the default button styling */
+.swal-button{
+  background-color: #fd7e14 !important;
+  outline: none;
+}
+.swal-button:hover {
+  background-color: black !important;
+  border: 1px solid #fd7e14 !important;
+}

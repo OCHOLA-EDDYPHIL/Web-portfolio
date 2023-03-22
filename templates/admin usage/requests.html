@@ -10,7 +10,8 @@
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
@@ -22,9 +23,12 @@
 <section id="requests" class="full-height px-lg-5">
     <div class="container">
 
-        <div class="row pb-4" data-aos="fade-up">
-            <div class="col-lg-8">
+        <div class="row pb-4 " data-aos="fade-up">
+            <div class="col-lg-8 d-flex justify-content-around align-items-center flex-row-reverse">
                 <h4 class="text-brand">REQUESTS</h4>
+                <a href="/" class="link-custom">
+                    <h6 class="text-brand">Go Home</h6>
+                </a>
             </div>
         </div>
 
@@ -34,8 +38,8 @@
 
                     <div class="request shadow-effect bg-base p-4 rounded-4">
                         <div class="text-brand h5">
-                            <p class="lead">{{ application.name }} in </p>
-                            <p class="mb-0 text-success fs-6 fst-italic fw-light">{{ application.service }}</p>
+                            <p class="lead">My name is {{ application.name }} seeking assistance in</p>
+                            <p class="mb-0 text-success fs-6 fst-italic fw-light">{{ application.subject }}</p>
                         </div>
                         <p class="my-3 fs-4">{{ application.message }}</p>
                         <div class="person">
@@ -52,6 +56,18 @@
     </div>
 </section>
 <!-- //REQUESTS -->
+{% if messages %}
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script>
+{% for message in messages %}
+    swal({
+        text: "{{ message }}",
+        icon: "{{ message.tags }}",
+        timer: 20000,
+    });
+{% endfor %}
+    </script>
+{% endif %}
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'js/aos.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>

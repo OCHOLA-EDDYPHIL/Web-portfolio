@@ -11,6 +11,8 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {#    <link rel="stylesheet" href="css/bootstrap.min.css">#}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/line-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -52,6 +54,18 @@
     </div>
 </div>
 {#<script src="{% static 'js/validate.js' %}"></script>#}
+{% if messages %}
+   <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <script>
+{% for message in messages %}
+    swal({
+        text: "{{ message }}",
+        icon: "{{ message.tags }}",
+        timer: 20000,
+    });
+{% endfor %}
+    </script>
+{% endif %}
 <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'js/aos.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
